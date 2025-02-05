@@ -1,0 +1,16 @@
+version: '3'
+services:
+  simple-streamer:
+    image: dbosnich800/simple-streamer:public-ip
+    ports:
+      - '49100:49100/tcp'
+      - '47998:47998/udp'
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
