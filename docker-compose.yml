@@ -2,6 +2,8 @@ version: '3'
 services:
   simple-streamer:
     image: dbosnich800/simple-streamer:test-gpu
+    privileged: true
+    network_mode: host
     ports:
       - '49100:49100/tcp'
       - '47998:47998/udp'
@@ -11,6 +13,6 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: all
+              device_ids: ["0"]
               capabilities: [gpu]
 
