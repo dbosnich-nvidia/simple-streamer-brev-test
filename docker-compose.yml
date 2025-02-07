@@ -1,7 +1,7 @@
 version: '3'
 services:
   simple-streamer:
-    image: dbosnich800/simple-streamer:brev-demo-no-ip
+    image: dbosnich800/simple-streamer:brev-demo
     privileged: true
     network_mode: host
     ports:
@@ -20,7 +20,9 @@ services:
     restart: unless-stopped
     network_mode: host
     ports:
-      - "80:80/tcp"
+      - '80:80/tcp'
+      - '49100:49100/tcp'
+      - '47998:47998/udp'
     environment:
       - NGINX_HOST=0.0.0.0
 
