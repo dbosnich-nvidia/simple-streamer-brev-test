@@ -1,7 +1,7 @@
 version: '3'
 services:
   simple-streamer:
-    image: dbosnich800/simple-streamer:brev-demo
+    image: dbosnich800/simple-streamer:brev-demo-no-ip
     privileged: true
     network_mode: host
     ports:
@@ -17,8 +17,12 @@ services:
               capabilities: [gpu]
   web:
     image: dbosnich800/test-client:brev-demo
-    network_mode: host
+    restart: unless-stopped
+    build:
+      context: web-app
+      network: host
     ports:
-      - "8080:8080"
-
+      - "80:80/tcp"
+    environment:
+      - NGINX_HOST=0.0.0.0
 
