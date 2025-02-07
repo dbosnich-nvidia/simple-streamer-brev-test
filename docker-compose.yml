@@ -15,4 +15,10 @@ services:
             - driver: nvidia
               device_ids: ["0"]
               capabilities: [gpu]
+  web:
+    image: dbosnich800/test-client:brev-demo
+    network_mode: host
+    ports:
+      - "8080:8080"
+
 
