@@ -1,7 +1,7 @@
 version: '3'
 services:
   simple-streamer:
-    image: dbosnich800/simple-streamer:test-gpu
+    image: dbosnich800/simple-streamer:brev-demo
     privileged: true
     network_mode: host
     ports:
