@@ -1,7 +1,7 @@
 version: '3'
 services:
   simple-streamer:
-    image: dbosnich800/simple-streamer:brev-demo-no-ip
+    image: dbosnich800/simple-streamer:brev-demo-local-host
     privileged: true
     network_mode: host
     ports:
